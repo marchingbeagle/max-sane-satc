@@ -1,0 +1,24 @@
+
+
+CREATE SCHEMA IF NOT EXISTS mydb;
+
+
+
+CREATE TABLE IF NOT EXISTS mydb."User" (
+  "IdUser" SERIAL PRIMARY KEY,
+  "User" VARCHAR(45) NOT NULL,
+  "Role" VARCHAR(45) NOT NULL,
+  "Password" VARCHAR(45) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS mydb.Product (
+  "idProduct" SERIAL PRIMARY KEY,
+  "Product" VARCHAR(45) NOT NULL,
+  "Imagem" VARCHAR(45) NOT NULL,
+  "Category" VARCHAR(45) NOT NULL
+);
+
+
+CREATE OR REPLACE VIEW mydb.view1 AS SELECT 1 AS id;
+
+
