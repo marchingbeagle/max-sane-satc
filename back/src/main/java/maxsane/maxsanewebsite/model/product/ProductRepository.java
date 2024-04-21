@@ -1,6 +1,5 @@
-package maxsane.maxsanewebsite.repository;
+package maxsane.maxsanewebsite.model.product;
 
-import maxsane.maxsanewebsite.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProductRepository extends JpaRepository<Product, String> {
