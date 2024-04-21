@@ -9,11 +9,11 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(of = "idProduct")
+@EqualsAndHashCode(of = "id")
 public class Product {
     @Id @GeneratedValue(strategy = GenerationType.UUID)
-    private String idProduct;
-    private String Product;
-    private String Imagem;
-    private String Category;
+    private String id;
+    private String product_name;
+    private String image;
+    private String category;
 }
