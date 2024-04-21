@@ -1,4 +1,6 @@
 package maxsane.maxsanewebsite.model.product;
 
-public record RequestProductDTO(String product_name, String category, String image ) {
+import java.util.UUID;
+
+public record RequestProductDTO(UUID id, String product_name, String category, String image ) {
 }

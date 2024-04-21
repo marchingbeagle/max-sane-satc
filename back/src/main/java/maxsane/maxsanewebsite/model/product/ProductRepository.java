@@ -2,6 +2,8 @@ package maxsane.maxsanewebsite.model.product;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProductRepository extends JpaRepository<Product, String> {
+import java.util.UUID;
+
+public interface ProductRepository extends JpaRepository<Product, UUID> {
 
 }
