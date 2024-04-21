@@ -1,15 +1,18 @@
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
 CREATE TABLE IF NOT EXISTS "User" (
-  "IdUser" SERIAL PRIMARY KEY,
-  "User" VARCHAR(45) NOT NULL,
-  "Role" VARCHAR(45) NOT NULL,
-  "Password" VARCHAR(45) NOT NULL
+  "id" UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  "user" VARCHAR(255) NOT NULL,
+  "role" VARCHAR(255) NOT NULL,
+  "password" VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Product (
-  "idProduct" SERIAL PRIMARY KEY,
-  "Product" VARCHAR(45) NOT NULL,
-  "Imagem" VARCHAR(45) NOT NULL,
-  "Category" VARCHAR(45) NOT NULL
+  "id" UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  "product_name" VARCHAR(255) NOT NULL,
+  "image" VARCHAR(255) NOT NULL,
+  "category" VARCHAR(255) NOT NULL
 );
 
 CREATE OR REPLACE VIEW view1 AS SELECT 1 AS id;
+
