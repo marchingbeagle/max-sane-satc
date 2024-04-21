@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("/product")
 public class ProductController {
@@ -37,5 +39,11 @@ public class ProductController {
     @Transactional
     public ResponseEntity updateProduct(@RequestBody @Validated RequestProductDTO data){
         return productService.updateProduct(data);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteProduct(@PathVariable UUID id){
+        repository.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 }
