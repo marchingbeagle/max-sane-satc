@@ -4,9 +4,9 @@ CREATE TABLE IF NOT EXISTS "User" (
   "id" UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   "user" VARCHAR(255) NOT NULL,
   "role" VARCHAR(255) NOT NULL,
-  "password" VARCHAR(255) NOT NULL
-  "email" VARCHAR(255) NOT NULL
-  "cpf" VARCHAR(255) NOT NULL
+  "password" VARCHAR(255) NOT NULL,
+  "email" VARCHAR(255) NOT NULL,
+  "cpf" VARCHAR(255) NOT NULL,
   "phonenumber" VARCHAR(255) NOT NULL
 );
 
@@ -14,8 +14,8 @@ CREATE TABLE IF NOT EXISTS Product (
   "id" UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   "product_name" VARCHAR(255) NOT NULL,
   "image" VARCHAR(255) NOT NULL,
-  "category" VARCHAR(255) NOT NULL
-  "description" VARCHAR(255) NOT NULL
+  "category" VARCHAR(255) NOT NULL,
+  "description" VARCHAR(255) NOT NULL,
   "use_case" INT NOT NULL
 );
 
