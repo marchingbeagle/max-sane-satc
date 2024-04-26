@@ -18,10 +18,14 @@ public class Product {
     private String product_name;
     private String image;
     private String category;
+    private String description;
+    private int use_case;
 
     public Product(RequestProductDTO requestProductDTO){
         this.product_name = requestProductDTO.product_name();
         this.category = requestProductDTO.category();
         this.image = requestProductDTO.image();
+        this.description = requestProductDTO.description();
+        this.use_case = requestProductDTO.use_case();
     }
 }
