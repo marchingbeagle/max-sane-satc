@@ -1,8 +1,8 @@
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
-CREATE TABLE IF NOT EXISTS "User" (
+CREATE TABLE IF NOT EXISTS "users" (
   "id" UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-  "user" VARCHAR(255) NOT NULL,
+  "user_name" VARCHAR(255) NOT NULL,
   "role" VARCHAR(255) NOT NULL,
   "password" VARCHAR(255) NOT NULL,
   "email" VARCHAR(255) NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS "User" (
   "phonenumber" VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS Product (
+CREATE TABLE IF NOT EXISTS "product" (
   "id" UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   "product_name" VARCHAR(255) NOT NULL,
   "image" VARCHAR(255) NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS Product (
   "use_case" INT NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS Logs (
+CREATE TABLE IF NOT EXISTS "logs" (
   "id" UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   "data_log" VARCHAR(255) NOT NULL,
   "log" jsonb NOT NULL
