@@ -4,8 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import java.util.UUID;
 
-@Table(name="user")
-@Entity(name="user")
+@Table(name="users")
+@Entity(name="users")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -14,7 +14,7 @@ import java.util.UUID;
 public class User {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
-    private String user;
+    private String user_name;
     private String role;
     private String password;
     private String email;
@@ -22,7 +22,7 @@ public class User {
     private String phonenumber;
 
     public User(RequestUserDTO requestUserDTO){
-        this.user = requestUserDTO.user();
+        this.user_name = requestUserDTO.user_name();
         this.role = requestUserDTO.role();
         this.password = requestUserDTO.password();
         this.email = requestUserDTO.email();
