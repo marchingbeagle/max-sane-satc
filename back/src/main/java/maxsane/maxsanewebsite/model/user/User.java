@@ -27,10 +27,10 @@ public class User implements UserDetails {
     private String cpf;
     private String phonenumber;
 
-    public User(RequestUserDTO requestUserDTO){
+    public User(RequestUserDTO requestUserDTO, String encryptedPassword){
         this.user_name = requestUserDTO.user_name();
         this.role = requestUserDTO.role();
-        this.password = requestUserDTO.password();
+        this.password = encryptedPassword;
         this.email = requestUserDTO.email();
         this.cpf = requestUserDTO.cpf();
         this.phonenumber = requestUserDTO.phonenumber();
