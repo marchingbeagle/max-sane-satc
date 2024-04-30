@@ -5,7 +5,7 @@ import java.util.UUID;
 public record RequestUserDTO(
         UUID id,
         String user_name,
-        String role,
+        UserRole role,
         String password,
         String email,
         String cpf,
