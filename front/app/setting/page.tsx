@@ -1,72 +1,122 @@
 import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar"
+import { CardTitle, CardHeader, CardContent, CardFooter, Card } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
-import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
+import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "@/components/ui/select"
 
 export default function config() {
     return (
-      <main className="flex min-h-screen w-full flex-col items-center justify-center bg-gray-100 py-12 dark:bg-gray-950">
-        <div className="container mx-auto max-w-4xl px-4 md:px-6">
-          <div className="rounded-lg bg-white p-8 shadow-lg dark:bg-gray-800">
-            <div className="mb-8">
-              <h1 className="text-2xl font-bold">User Management</h1>
+      <div className="container mx-auto py-8 px-4 md:px-6">
+      <div className="grid md:grid-cols-2 gap-8">
+        <div className="bg-white dark:bg-gray-950 rounded-lg shadow-md p-6">
+          <div className="flex items-center gap-4">
+            <Avatar className="h-16 w-16">
+              <AvatarImage alt="User Avatar" src="/placeholder-avatar.jpg" />
+              <AvatarFallback>JD</AvatarFallback>
+            </Avatar>
+            <div>
+              <h2 className="text-xl font-bold">John Doe</h2>
+              <p className="text-gray-500 dark:text-gray-400">Software Engineer</p>
             </div>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-              <div className="flex flex-col items-center justify-center space-y-4">
-                <Avatar className="h-24 w-24">
-                  <AvatarImage alt="User Avatar" src="/placeholder-avatar.jpg" />
-                  <AvatarFallback>JP</AvatarFallback>
-                </Avatar>
-                <div className="text-center">
-                  <h2 className="text-xl font-semibold">John Doe</h2>
-                  <p className="text-gray-500 dark:text-gray-400  justify-items-start flex">Idade: 35</p>
-                  <p className="text-gray-500 dark:text-gray-400  justify-items-start flex"> Email: john.doe@example.com </p>
-                  <p className="text-gray-500 dark:text-gray-400  justify-items-start flex"> Função: Admin</p>
-                </div>
+          </div>
+          <div className="mt-6 space-y-4">
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-400">Age</label>
+                <p className="text-gray-500 dark:text-gray-400">32</p>
               </div>
               <div>
-                <form className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="name">Name</Label>
-                      <Input defaultValue="John Doe" id="name" />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="age">Age</Label>
-                      <Input defaultValue={35} id="age" type="number" />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input defaultValue="john.doe@example.com" id="email" type="email" />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="role">Role</Label>
-                    <Select defaultValue="admin">
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select role" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="admin">Admin</SelectItem>
-                        <SelectItem value="manager">Manager</SelectItem>
-                        <SelectItem value="user">User</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="password">Password</Label>
-                    <Input id="password" type="password" />
-                  </div>
-                  <div className="flex justify-end space-x-2">
-                    <Button variant="outline">Change Photo</Button>
-                    <Button type="submit">Save Changes</Button>
-                  </div>
-                </form>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-400">Email</label>
+                <p className="text-gray-500 dark:text-gray-400">john.doe@example.com</p>
               </div>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-400">Role</label>
+              <p className="text-gray-500 dark:text-gray-400">Software Engineer</p>
             </div>
           </div>
         </div>
-      </main>
+        <div className="space-y-6">
+          <Card>
+            <CardHeader>
+              <CardTitle>Atualizar Senha</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <form className="space-y-4">
+                <div>
+                  <Label htmlFor="current-password"> Senha Atual</Label>
+                  <Input id="current-password" type="password" />
+                </div>
+                <div>
+                  <Label htmlFor="new-password">Nova Senha</Label>
+                  <Input id="new-password" type="password" />
+                </div>
+                <div>
+                  <Label htmlFor="confirm-password">Confirmar Senha</Label>
+                  <Input id="confirm-password" type="password" />
+                </div>
+              </form>
+            </CardContent>
+            <CardFooter>
+              <Button className="ml-auto">Atualizar Password</Button>
+            </CardFooter>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Atualizar foto de Perfil</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <form className="space-y-4">
+                <div>
+                  <Label htmlFor="profile-photo">Foto de Perfil</Label>
+                  <Input id="profile-photo" type="file" />
+                </div>
+              </form>
+            </CardContent>
+            <CardFooter>
+              <Button className="ml-auto">Atualizar Foto</Button>
+            </CardFooter>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Atualizar detalhes pessoais</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <form className="space-y-4">
+                <div>
+                  <Label htmlFor="name">Nome</Label>
+                  <Input defaultValue="John Doe" id="name" />
+                </div>
+                <div>
+                  <Label htmlFor="age">Idade</Label>
+                  <Input defaultValue={32} id="age" type="number" />
+                </div>
+                <div>
+                  <Label htmlFor="email">Email</Label>
+                  <Input defaultValue="john.doe@example.com" id="email" type="email" />
+                </div>
+                <div>
+                  <Label htmlFor="role">Função</Label>
+                  <Select defaultValue="software-engineer" >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select Role" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="software-engineer">Software Engineer</SelectItem>
+                      <SelectItem value="product-manager">Product Manager</SelectItem>
+                      <SelectItem value="designer">Designer</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </form>
+            </CardContent>
+            <CardFooter>
+              <Button className="ml-auto">Atualizar detalhes</Button>
+            </CardFooter>
+          </Card>
+        </div>
+      </div>
+    </div>
     )
   }
