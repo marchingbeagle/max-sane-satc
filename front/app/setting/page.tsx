@@ -19,8 +19,6 @@ function DeleteIcon(props: any) {
       </svg>
     )
   }
-  
-  
   function TrashIcon(props: any) {
 
     return (
@@ -69,7 +67,7 @@ export default function MenuConfiguracoes() {
         <ArrowLeftIcon className="h-5 w-5" />
         Back
       </Link>
-      <h1 className="text-3xl font-bold ml-auto">Usuários</h1>
+      <h1 className="text-3xl font-bold ml-auto">Configuração de Usuario</h1>
     </div>
     <div className="grid gap-6">
       <div className="bg-white rounded-lg shadow-md p-4">
@@ -77,7 +75,7 @@ export default function MenuConfiguracoes() {
           <div className="w-10 h-10 rounded-full bg-gray-200 mr-4" />
           <div>
             <h2 className="text-lg font-medium">
-              <Link href="/perfil">John Doe</Link>
+              <Link href="./perfil">John Doe</Link>
             </h2>
             <p className="text-gray-500">johndoe@example.com</p>
             <p className="text-gray-500">Gerente</p>

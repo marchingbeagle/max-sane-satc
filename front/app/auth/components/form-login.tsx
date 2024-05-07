@@ -37,8 +37,8 @@ const LoginForm = () => {
     return(
         <div className="w-full h-screen flex items-center justify-center">
             <form className="p-10 border rounded-lg w-96"onSubmit={handleLogin}>
-                <h1 className="text-xl font-bold mb-4 flex justify-center font-semibold	">Login</h1>
-                <p className="text-slate-700 items-center justify-center font-medium flex justify-center">Faça Login</p>
+                <h1 className="text-xl font-bold mb-4 flex justify-center">Login</h1>
+                <p className="text-slate-700 items-center justify-center font-medium flex">Faça Login</p>
                 <div className="flex flex-col">
                     <div className="flex flex-col gap-1 mb-6">
                         <label htmlFor="email">Email</label>
