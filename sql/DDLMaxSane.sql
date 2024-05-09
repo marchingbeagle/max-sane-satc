@@ -21,11 +21,11 @@ CREATE TABLE IF NOT EXISTS mydb."product" (
 );
 
 CREATE TABLE IF NOT EXISTS mydb."pedido" (
-    id SERIAL PRIMARY KEY,
-    product_id UUID,
-    quantidade INT,
-    data_pedido DATE,
-    user_id UUID,
+    "id" UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    "product_id" UUID,
+    "quantidade" INT,
+    "data_pedido" DATE,
+    "user_id" UUID,
     FOREIGN KEY (product_id) REFERENCES mydb."product"("id"),
     FOREIGN KEY (user_id) REFERENCES mydb."users"("id")
 );
