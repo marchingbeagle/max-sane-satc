@@ -1,9 +1,9 @@
 'use client'
 import CrudDeProdutos from "./CrudDeProdutos";
 
-export default function Component() {
+export default function CrudProd(){
   return (
-    <div className="flex flex-col h-screen items-center justify-center">
+    <div >
         <CrudDeProdutos/>
     </div>
   )

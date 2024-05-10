@@ -163,15 +163,15 @@ export default function Usuarios() {
 
   return (
         
-    <div className="container mx-auto px-4 py-8 md:px-6 lg:px-8">
+    <div className="container mx-auto lg:px-8">
       <div className="flex justify-between items-center mb-6">
       <div className="flex items-center mb-6">
-      <Link className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-700 font-bold" href="./Menu">
+      <Link className="inline-flex items-center text-gray-500 hover:text-gray-700 font-bold" href="./Menu">
         <ArrowLeftIcon className="h-5 w-5" />
         Back
       </Link>
       <div>
-      <h1 className="p-6 text-3xl font-bold fixed ml-auto text-gray-700">Configuração de Usuario</h1>
+      <h1 className="text-3xl font-bold m-5 text-gray-700">Adicionar de Usuario</h1>
       </div>
     </div>
     

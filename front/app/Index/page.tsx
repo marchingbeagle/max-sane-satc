@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { CardContent, Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
+import WhatsAppButton from "./whatsapp"
 
 export default function Component() {
   return (
@@ -10,6 +11,9 @@ export default function Component() {
           <a className="text-sm" href="#Home" id="Home">
             Home
           </a>
+          <div className="App">
+      <WhatsAppButton />
+    </div>
           <a className="text-sm" href="#About-Us">
             About Us
           </a>
@@ -20,7 +24,6 @@ export default function Component() {
             Contact
           </a>
         </div>
-        <Button variant="secondary">Login</Button>
       </nav>
       <div className="my-6">
         <img
