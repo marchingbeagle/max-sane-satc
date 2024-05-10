@@ -82,3 +82,39 @@ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE VIEW mydb.view1 AS SELECT 1 AS id;
 
+CREATE OR REPLACE FUNCTION log_pedido_changes()
+RETURNS TRIGGER AS $$
+BEGIN
+    INSERT INTO mydb."logs" ("data_log", "log")
+    VALUES (CURRENT_TIMESTAMP, jsonb_build_object(
+        'table', 'pedido',
+        'action', TG_OP,
+        'old_data', ROW_TO_JSON(OLD),
+        'new_data', ROW_TO_JSON(NEW)
+    ));
+    RETURN NEW;
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE TRIGGER pedido_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE ON mydb."pedido"
+FOR EACH ROW EXECUTE FUNCTION log_pedido_changes();
+
+
+CREATE OR REPLACE FUNCTION log_product_changes()
+RETURNS TRIGGER AS $$
+BEGIN
+    INSERT INTO mydb."logs" ("data_log", "log")
+    VALUES (CURRENT_TIMESTAMP, jsonb_build_object(
+        'table', 'product',
+        'action', TG_OP,
+        'old_data', ROW_TO_JSON(OLD),
+        'new_data', ROW_TO_JSON(NEW)
+    ));
+    RETURN NEW;
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE TRIGGER product_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE ON mydb."product"
+FOR EACH ROW EXECUTE FUNCTION log_product_changes();
