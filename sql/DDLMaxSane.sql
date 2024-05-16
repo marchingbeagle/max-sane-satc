@@ -118,3 +118,24 @@ $$ LANGUAGE 'plpgsql';
 CREATE TRIGGER product_changes_trigger
 AFTER INSERT OR UPDATE OR DELETE ON mydb."product"
 FOR EACH ROW EXECUTE FUNCTION log_product_changes();
+
+
+
+
+CREATE OR REPLACE FUNCTION mydb.log_deletion()
+RETURNS TRIGGER AS
+$$
+BEGIN
+    INSERT INTO mydb."logs" ("data_log", "log")
+    VALUES (NOW(), jsonb_build_object(
+                'deleted_row', OLD
+            ));
+    RETURN OLD;
+END;
+$$
+LANGUAGE plpgsql;
+
+CREATE TRIGGER log_deletion_trigger
+AFTER DELETE ON mydb."logs" 
+FOR EACH ROW
+EXECUTE FUNCTION mydb.log_deletion();
