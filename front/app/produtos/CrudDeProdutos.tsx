@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 import React from 'react';

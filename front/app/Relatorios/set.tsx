@@ -54,10 +54,10 @@ const Relatorios: React.FC = () => {
       case 'product':
         return (
           <div>
-            <h2 className="text-2xl font-bold mb-4">Produtos</h2>
+            <h2>Produtos</h2>
             <ul>
               {products.map((product) => (
-                <li key={product.id} className="mb-2">{product.name} - {product.price}</li>
+                <li key={product.id}>{product.name} - {product.price}</li>
               ))}
             </ul>
           </div>
@@ -65,14 +65,14 @@ const Relatorios: React.FC = () => {
       case 'order':
         return (
           <div>
-            <h2 className="text-2xl font-bold mb-4">Pedidos</h2>
+            <h2>Pedidos</h2>
             <ul>
               {orders.map((order) => {
                 const product = products.find((p) => p.id === order.product_id);
                 const user = users.find((u) => u.id === order.user_id);
                 return (
-                  <TableCell key={order.id} className="mb-2">
-                    Pedido {order.id} - Produto: {product?.name} - Quantidade: {order.quantity} - Cliente: {user?.user_name}
+                  <TableCell key={order.id}>
+                    Pedido {order.id} - Produto: {product?.name} - Quantidade: {order.quantidade} - Cliente: {user?.user_name}
                   </TableCell>
                 );
               })}
@@ -82,10 +82,10 @@ const Relatorios: React.FC = () => {
       case 'user':
         return (
           <div>
-            <h2 className="text-2xl font-bold mb-4">Usuários</h2>
+            <h2>Usuários</h2>
             <ul>
               {users.map((user) => (
-                <li key={user.id} className="mb-2">{user.user_name} - {user.email}</li>
+                <li key={user.id}>{user.user_name} - {user.email}</li>
               ))}
             </ul>
           </div>
@@ -95,42 +95,17 @@ const Relatorios: React.FC = () => {
     }
   };
 
+
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-6">Relatórios</h1>
-      <div className="mb-6">
-        <button
-          className={`mr-2 px-4 py-2 rounded ${
-            selectedReport === 'product' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'
-          }`}
-          onClick={() => setSelectedReport('product')}
-        >
-          Produtos
-        </button>
-        <button
-          className={`mr-2 px-4 py-2 rounded ${
-            selectedReport === 'order' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'
-          }`}
-          onClick={() => setSelectedReport('order')}
-        >
-          Pedidos
-        </button>
-        <button
-          className={`mr-2 px-4 py-2 rounded ${
-            selectedReport === 'user' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'
-          }`}
-          onClick={() => setSelectedReport('user')}
-        >
-          Usuários
-        </button>
+    <div>
+      <h1>Relatórios</h1>
+      <div>
+        <button onClick={() => setSelectedReport('product')}>Produtos</button>
+        <button onClick={() => setSelectedReport('order')}>Pedidos</button>
+        <button onClick={() => setSelectedReport('user')}>Usuários</button>
       </div>
-      <button
-        className="bg-blue-500 text-white px-4 py-2 rounded"
-        onClick={generatePDF}
-      >
-        Gerar PDF
-      </button>
-      <div id="pdf-content" className="mt-6">
+      <button onClick={generatePDF}>Gerar PDF</button>
+      <div id="pdf-content">
         {renderSelectedReport()}
       </div>
     </div>

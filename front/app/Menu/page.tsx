@@ -26,19 +26,19 @@ export default function MainMenu() {
               </Link>
               <Link
                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                href="/produtos"
+                href="/CrudProdutos"
               >
                 Gerenciar Produtos
               </Link>
               <Link
                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                href="/users"
+                href="/CrudUsuarios"
               >
                 Gerenciar Clientes
               </Link>
               <Link
                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                href="/pedidos">
+                href="/CrudPedidos">
                 Gerenciar Pedidos
               </Link>
               <Link

@@ -1,9 +1,18 @@
-Iniciar o codigo em si tem que entrar na pasta atraves do terminal em FRONT 
-no caso 
-C:\Users\nomedouser\MaxSane\max-sane-satc\ Cd Front
-Para Iniciar o projeto utilizar o npm run dev, todos os codigos estão em package.json
-após isso as rotas ja foram feitas atraves do menu. todos os menus tem como voltar atras
-sendo botão back ou clicando no header ( isso é temporario o header vai ser exclusivo do Menu )
-telas a serem ajustas/configuradas, atualmente estou trabalhando melhor com os cruds minimizando as informações 
-na hora de criar um novo pedido/produto/cliente ( o cliente em questão seria a empresa que está fazendo o pedido )
-a base de um crud ja ta feita com uma outra biblioteca de CSS com daisyui, na tela de Crud Teste.
+faça um resumo completo sobre as informações do trabalho que fizemos, 
+Foi usado front com typescript algumas coisas são diferentes do padrão usado no react mas funciona da mesma forma e a logica pra react é a mesma, para iniciar o projeto tem que entrar na pasta de Front atraves do terminal com o comando CD Front a paginação não ta complicada e bem simples de saber onde é oq, codigos com nome Page.tsx é onde será exibido as informações de tela sendo componentes, ou proprio codigos, seria a parte do 'use client' do next, normalmente os erros que podem acontecer são referentes a o tipo de use que ta sendo puxado, como useState não tem como utilizar no lado do servidor, useEffect tb n tem, pq são ações referente a interação do usuario. a biblioteca que estou utilizando para front é a shardUI, documentação dela é bem simples não tem oq ter duvida mesma coisa de bootstrap, apenas facilitei a padronização do site com um framework de css fora o tailwind, o mesmo tambem ja deixa por si só muitas telas responsivas. os comando principais são de crud no sistema, bom n temos muito oque questionar sobre isso até pq o sistema em si não vai ser por assim dizer usado, a gente ta passando esse trampo meio atoa então é mais a parte do index. 
+A pagina principal n tem muito uma puta estrutura feita é mais tudo visual o botão de whatsapp foi feito a mão e um SVG por cima então né, o padrão ta feito tudo la no Figma não foge daquilo, 
+
+Usando os blocos de codigo dos ultimos meses fale sobre o projeto e explique melhor mais informações, melhore o texto e adicione informações relevantes tanto para a usabilidade quanto o entendimento para o time
+Tela de Login: Permite que os usuários façam login na aplicação, autenticando suas credenciais para acessar as funcionalidades do sistema.
+Utilizando NextAuth padroniza as informções fazendo com que pegue de maneira mais segura e padronizada, oque um form de Login precisaria, alem de auxiliar com processos que utilizamos para a validação de login, commo devolver um Token Jwt e validar credenciais automaticamente
+
+Dashboard: Apresenta um resumo das informações essenciais e estatísticas relevantes do sistema, fornecendo uma visão geral do desempenho e atividades recentes.
+
+Tela de CRUD de Produtos: Permite aos usuários adicionar, visualizar, editar e excluir produtos do sistema, gerenciando assim o catálogo de produtos da empresa.
+Utilizando Json-server por base então tem que utilizar o comando npm run json-server
+
+Tela de CRUD de Pedidos: Permite aos usuários criar, visualizar, editar e excluir pedidos de clientes, facilitando a gestão e acompanhamento das vendas.
+
+Tela de Relatórios: Apresenta relatórios detalhados sobre vendas, estoque, e outras métricas relevantes, fornecendo insights valiosos para a tomada de decisões.
+
+Tela de Configurações: Permite aos usuários configurar preferências pessoais e ajustar configurações do sistema conforme necessário.

@@ -1,27 +1,38 @@
+/* eslint-disable @next/next/no-img-element */
+'use client'
 import { Button } from "@/components/ui/button"
 import { CardContent, Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import WhatsAppButton from "./whatsapp"
 
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+};
+
 export default function Component() {
   return (
-    <div className="max-w-screen-lg mx-auto">
-      <nav className="flex justify-between items-center py-4">
+    <html className="scroll-smooth">
+          <div className="max-w-screen-lg mx-auto">
+      <nav className="fixed justify-between items-center py-4">
         <div className="flex items-center space-x-4">
-          <a className="text-sm" href="#Home" id="Home">
+        <a className="text-sm" href="#Home" id="Home" onClick={scrollToTop}>
             Home
           </a>
-          <div className="App">
+          <div className="App" >
       <WhatsAppButton />
     </div>
           <a className="text-sm" href="#About-Us">
-            About Us
+            Sobre nós
           </a>
-          <a className="text-sm" href="#">
-            Services
+          <a className="text-sm" href="#Serviços">
+            Serviços
           </a>
-          <a className="text-sm" href="#">
-            Contact
+          <a className="text-sm" href="#Contato">
+            Contato
           </a>
         </div>
       </nav>
@@ -41,13 +52,16 @@ export default function Component() {
       <section className="my-6">
         <h2 className="text-2xl font-semibold mb-3" id="About-Us">Quem Somos?</h2>
         <p className="mb-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor
-          sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus
-          et magnis dis parturient montes.
+        A Maxsane desenvolve, fabrica e comercializa produtos de qualidade destinados ao mercado de higiene e limpeza.
+        Dispõe de uma grande variedade de produtos e sistemas, oferecendo aos clientes aqueles que melhor se ajustem às suas necessidades.
+        Atendemos em todo o território nacional
         </p>
-        <Button variant="outline">Contact Us</Button>
+        <Button variant="outline">Entre em contato</Button>
       </section>
-      <div className="grid grid-cols-3 gap-4 my-6">
+
+      <h2 className="text-2xl font-semibold mb-3" id="Serviços">Áreas de Atuação</h2>
+      <div className="grid grid-cols-3 gap-6 my-6">
+
         <Card className="w-full">
           <CardContent>
             <img
@@ -65,6 +79,7 @@ export default function Component() {
             <p className="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </CardContent>
         </Card>
+        
         <Card className="w-full">
           <CardContent>
             <img
@@ -189,5 +204,7 @@ export default function Component() {
         </div>
       </footer>
     </div>
+    </html>
+
   )
 }
