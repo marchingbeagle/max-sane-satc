@@ -3,10 +3,23 @@ import io.github.cdimascio.dotenv.Dotenv;
 
 public class EnvLoader {
     public static void load() {
-        Dotenv dotenv = Dotenv.load();
-        System.setProperty("spring.datasource.url", dotenv.get("DB_URL"));
-        System.setProperty("spring.datasource.username", dotenv.get("DB_USERNAME"));
-        System.setProperty("spring.datasource.password", dotenv.get("DB_PASSWORD"));
+        try {
+            Dotenv dotenv = Dotenv.load();
+            String dbUrl = dotenv.get("DB_URL");
+            String dbUsername = dotenv.get("DB_USERNAME");
+            String dbPassword = dotenv.get("DB_PASSWORD");
+
+            if (dbUrl == null || dbUsername == null || dbPassword == null) {
+                throw new IllegalArgumentException("Missing required environment variables");
+            }
+
+            System.setProperty("spring.datasource.url", dbUrl);
+            System.setProperty("spring.datasource.username", dbUsername);
+            System.setProperty("spring.datasource.password", dbPassword);
+        } catch (DotenvException | IllegalArgumentException e) {
+            System.err.println("Error loading environment variables: " + e.getMessage());
+            System.exit(1);
+        }
     }
 }
 
