@@ -1,10 +1,13 @@
 package maxsane.maxsanewebsite.services;
 import io.github.cdimascio.dotenv.Dotenv;
+import io.github.cdimascio.dotenv.DotenvException;
 
 public class EnvLoader {
-    public static void load() {
+    public static void load(String path) {
         try {
-            Dotenv dotenv = Dotenv.load();
+            Dotenv dotenv = Dotenv.configure()
+                    .directory(path) // Set the directory where .env is located
+                    .load();
             String dbUrl = dotenv.get("DB_URL");
             String dbUsername = dotenv.get("DB_USERNAME");
             String dbPassword = dotenv.get("DB_PASSWORD");
