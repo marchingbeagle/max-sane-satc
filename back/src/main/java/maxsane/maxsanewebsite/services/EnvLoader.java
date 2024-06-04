@@ -3,9 +3,9 @@ import io.github.cdimascio.dotenv.Dotenv;
 import io.github.cdimascio.dotenv.DotenvException;
 
 public class EnvLoader {
-    public static void load(String path) {
+    public static void load() {
         try {
-            Dotenv dotenv = Dotenv.configure().directory(path).load();
+            Dotenv dotenv = Dotenv.load();
             String dbUrl = dotenv.get("DB_URL");
             String dbUsername = dotenv.get("DB_USERNAME");
             String dbPassword = dotenv.get("DB_PASSWORD");
