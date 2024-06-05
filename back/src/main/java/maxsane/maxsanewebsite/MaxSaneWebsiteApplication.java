@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MaxSaneWebsiteApplication {
 
 	public static void main(String[] args) {
-		EnvLoader.load();
+		EnvLoader.load("/etc/secrets/.env");
 		SpringApplication.run(MaxSaneWebsiteApplication.class, args);
 	}
 
