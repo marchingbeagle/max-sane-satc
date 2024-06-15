@@ -1,12 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ReactNode } from 'react';
 import axios from 'axios';
 
 export interface User {
-  name: ReactNode;
-  phone: ReactNode;
-  last_order_date: ReactNode;
-  total_spent: ReactNode;
-  last_order: ReactNode;
   id: string;
   user_name: string;
   role: string;
@@ -42,7 +37,7 @@ const CrudDeUsuarios: React.FC = () => {
   }, []);
 
   const fetchUsers = async () => {
-    const response = await axios.get('http://localhost:3001/users');
+    const response = await axios.get('http://localhost:3001/clientes');
     setUsers(response.data);
   };
 
@@ -61,9 +56,9 @@ const CrudDeUsuarios: React.FC = () => {
 
   const handleSaveUser = async () => {
     if (view === View.CREATE) {
-      await axios.post('http://localhost:3001/users', { ...formData, id: String(users.length + 1) });
+      await axios.post('http://localhost:3001/clientes', { ...formData, id: String(users.length + 1) });
     } else if (view === View.EDIT && selectedUserId !== null) {
-      await axios.put(`http://localhost:3001/users/${selectedUserId}`, formData);
+      await axios.patch(`http://localhost:3001/clientes/${selectedUserId}`, formData);
     }
     setView(View.LIST);
     fetchUsers();
@@ -79,7 +74,7 @@ const CrudDeUsuarios: React.FC = () => {
   };
 
   const handleDeleteUser = async (id: string) => {
-    await axios.delete(`http://localhost:3001/users/${id}`);
+    await axios.delete(`http://localhost:3001/clientes/${id}`);
     fetchUsers();
   };
 

@@ -1,16 +1,35 @@
-import Link from "next/link"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { DropdownMenuTrigger, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuItem, DropdownMenuContent, DropdownMenu } from "@/components/ui/dropdown-menu"
-import { CardTitle, CardDescription, CardHeader, CardContent, Card } from "@/components/ui/card"
-import { SignOutButton } from "@/components/SignOutButton"
-import { getServerSession } from "next-auth"
+'use client'
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { Input } from '@/components/ui/input';
+import { CardTitle, CardDescription, CardHeader, CardContent, Card } from '@/components/ui/card';
+import axios from 'axios';
 
 export default function MainMenu() {
+  const [stats, setStats] = useState({ produtos: 0, clientes: 0, pedidos: 0, relatorios: 0 });
+
+  useEffect(() => {
+    async function fetchStats() {
+      try {
+        const response = await axios.get('/api/stats');
+        console.log('Dados recebidos da API:', response.data); // Log de depuração
+        if (response.data) {
+          setStats(response.data);
+        } else {
+          console.error('Nenhum dado recebido da API');
+        }
+      } catch (error) {
+        console.error('Erro ao buscar estatísticas:', error);
+      }
+    }
+
+    fetchStats();
+  }, []);
+
   return (
     <div className="grid min-h-screen w-full grid-cols-[280px_1fr]">
       <div className="hidden border-r bg-gray-100/40 dark:bg-gray-800/40 lg:block">
-        <div className=" flex h-full max-h-screen flex-col gap-2">
+        <div className="flex h-full max-h-screen flex-col gap-2">
           <div className="flex h-[60px] items-center border-b px-6">
             <Link className="flex items-center gap-2 font-semibold" href="#">
               <span>Menu Principal</span>
@@ -38,12 +57,14 @@ export default function MainMenu() {
               </Link>
               <Link
                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                href="/CrudPedidos">
+                href="/CrudPedidos"
+              >
                 Gerenciar Pedidos
               </Link>
               <Link
                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                href="/Relatorios">
+                href="/Relatorios"
+              >
                 Relatorios
               </Link>
             </nav>
@@ -66,7 +87,6 @@ export default function MainMenu() {
               </div>
             </form>
           </div>
-        
         </header>
         <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
           <div className="flex items-center">
@@ -81,7 +101,7 @@ export default function MainMenu() {
               <CardContent>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <span className="text-2xl font-bold">120</span>
+                    <span className="text-2xl font-bold">{stats.produtos}</span>
                   </div>
                   <Link className="text-primary hover:underline" href="/produtos">
                     Ver Todos
@@ -97,7 +117,7 @@ export default function MainMenu() {
               <CardContent>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <span className="text-2xl font-bold">1,250</span>
+                    <span className="text-2xl font-bold">{stats.clientes}</span>
                   </div>
                   <Link className="text-primary hover:underline" href="/users">
                     Ver Todos
@@ -113,7 +133,7 @@ export default function MainMenu() {
               <CardContent>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <span className="text-2xl font-bold">350</span>
+                    <span className="text-2xl font-bold">{stats.pedidos}</span>
                   </div>
                   <Link className="text-primary hover:underline" href="/pedidos">
                     Ver Todos
@@ -129,7 +149,7 @@ export default function MainMenu() {
               <CardContent>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <span className="text-2xl font-bold">12</span>
+                    <span className="text-2xl font-bold">{stats.relatorios}</span>
                   </div>
                   <Link className="text-primary hover:underline" href="/Relatorios">
                     Ver Todos
@@ -141,5 +161,5 @@ export default function MainMenu() {
         </main>
       </div>
     </div>
-  )
+  );
 }

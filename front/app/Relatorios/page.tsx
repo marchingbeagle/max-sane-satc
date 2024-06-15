@@ -124,7 +124,8 @@ const Relatorios: React.FC = () => {
           Usuários
         </button>
       </div>
-      <button
+     <div>
+     <button
         className="bg-blue-500 text-white px-4 py-2 rounded"
         onClick={generatePDF}
       >
@@ -133,7 +134,9 @@ const Relatorios: React.FC = () => {
       <div id="pdf-content" className="mt-6">
         {renderSelectedReport()}
       </div>
+      </div> 
     </div>
+  
   );
 };
 
