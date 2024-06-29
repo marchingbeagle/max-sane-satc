@@ -1,7 +1,94 @@
 'use client'
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { ArrowLeftIcon, } from "@radix-ui/react-icons";
+import { Input } from "@/components/ui/input";
 
+function DeleteIcon(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z" />
+      <line x1="18" x2="12" y1="9" y2="15" />
+      <line x1="12" x2="18" y1="9" y2="15" />
+    </svg>
+  )
+}
+
+
+function PlusIcon(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M5 12h14" />
+      <path d="M12 5v14" />
+    </svg>
+  )
+}
+
+
+function SearchIcon(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="11" cy="11" r="8" />
+      <path d="m21 21-4.3-4.3" />
+    </svg>
+  )
+}
+
+
+function TrashIcon(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M3 6h18" />
+      <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+      <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+    </svg>
+  )
+}
 interface User {
   id: string;
   email: string;
@@ -75,74 +162,60 @@ export default function Usuarios() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
+        
+    <div className="container mx-auto lg:px-8">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Gerenciar Usuários</h1>
-        <Button
-          className="bg-primary text-white hover:bg-primary-dark"
-          size="sm"
-          onClick={editMode ? handleUpdateUser : handleAddUser}
-        >
+      <div className="flex items-center mb-6">
+      <Link className="inline-flex items-center text-gray-500 hover:text-gray-700 font-bold" href="./Menu">
+        <ArrowLeftIcon className="h-5 w-5" />
+        Back
+      </Link>
+      <div>
+      <h1 className="text-3xl font-bold m-5 text-gray-700">Adicionar de Usuario</h1>
+      </div>
+    </div>
+    
+        <div className="flex items-center space-x-2">
+          <Button size="sm">
+            <SearchIcon className="mr-2 h-4 w-4" />
+            Search
+          </Button>
+          <Button  size="sm"  onClick={editMode ? handleUpdateUser : handleAddUser}
+        ><Link href="/form"></Link>
+          <PlusIcon className="mr-2 h-4 w-4" />         
           {editMode ? "Atualizar Usuário" : "Adicionar Usuário"}
         </Button>
+        </div>
       </div>
-      <div className="mb-4 space-y-2">
-        <input
-          type="text"
-          name="name"
-          value={editMode ? currentUser?.name : newUser.name}
-          onChange={handleChange}
-          placeholder="Nome"
-        />
-        <input
-          type="email"
-          name="email"
-          value={editMode ? currentUser?.email : newUser.email}
-          onChange={handleChange}
-          placeholder="Email"
-        />
-        <input
-          type="password"
-          name="password"
-          value={editMode ? currentUser?.password : newUser.password}
-          onChange={handleChange}
-          placeholder="Senha"
-        />
-        <input
-          type="text"
-          name="role"
-          value={editMode ? currentUser?.role : newUser.role}
-          onChange={handleChange}
-          placeholder="Função"
-        />
-        <input
-          type="text"
-          name="phone"
-          value={editMode ? currentUser?.phone : newUser.phone}
-          onChange={handleChange}
-          placeholder="Telefone"
-        />
-      </div>
+      <div className="relative p-2">
+            <SearchIcon className=" absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+            <Input
+              className="w-full pl-10 pr-4 py-2 rounded-lg focus:outline-none focus:ring-2 hover:bg-gray-150 active:bg-gray-100 focus:ring-bg-gray-100 focus:border-transparent"
+              placeholder="Buscar usuario..."
+              type="text"
+            />
+          </div>
+
       <div className="bg-white rounded-lg shadow overflow-hidden">
-        <table>
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Email</th>
-              <th>Telefone</th>
-              <th>Ações</th>
+        <table className="w-full table-auto">
+          <thead className="m-2">
+            <tr className="bg-gray-100 text-gray-600 font-medium">
+              <th className="px-5 py-4 text-left">Nome</th>
+              <th className="px-5 py-4 text-left">Email</th>
+              <th className="px-5 py-4 text-left hidden sm:table-cell">Telefone</th>
+              <th className="px-5 py-4 text-left hidden sm:table-cell ">Ações</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="p-2">
             {users.map((user) => (
-              <tr key={user.id}>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-                <td>{user.phone}</td>
-                <td>
-                  <div className="flex items-center gap-2">
+              <tr  className="border-b" key={user.id}>
+                <td className="px-6 py-4">{user.name}</td>
+                <td className="px-6 py-4">{user.email}</td>
+                <td className="px-6 py-4">{user.phone}</td>
+                <td className="px-6 py-4">
+                  <div className="">
                     <Button
-                      className="text-primary"
+                      className="text-primary m-1"
                       size="sm"
                       variant="outline"
                       onClick={() => handleEditUser(user)}

@@ -1,0 +1,79 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Sopa de macaco",
+      "price": 3212132102,
+      "image": "",
+      "description": "312321",
+      "quantity_ml": 321312,
+      "use_case": "321321321",
+      "quantity_available": 321321
+    },
+    {
+      "id": "2",
+      "name": "Água Sanitaria",
+      "price": 25,
+      "image": "",
+      "description": "Uso para empresas que precisam de agua sanitaria",
+      "quantity_ml": 1000,
+      "use_case": "Restaurantes entre outros",
+      "quantity_available": 250
+    },
+    {
+      "id": "3",
+      "name": "Giovanni",
+      "price": 32198312,
+      "image": "",
+      "description": "39218312912",
+      "quantity_ml": 3219831298,
+      "use_case": "32198312",
+      "quantity_available": 983219321
+    }
+  ],
+  "orders": [
+    {
+      "id": "1",
+      "product_id": "1",
+      "user_id": "2",
+      "quantidade": 5,
+      "data_pedido": ""
+    },
+    {
+      "id": "2",
+      "product_id": "2",
+      "user_id": "3",
+      "quantidade": 250,
+      "data_pedido": ""
+    }
+  ],
+  "users": [
+    {
+      "id": "2",
+      "user_name": "Gabriel william",
+      "role": "Marcos",
+      "password": "3232139120321",
+      "email": "indiogabriel@gmail.com",
+      "cpf": "391283129381298",
+      "phonenumber": "9183219382"
+    },
+    {
+      "id": "3",
+      "user_name": "Icaro de Oliveira",
+      "role": "PCP",
+      "password": "321083128321",
+      "email": "icroliveira3266@gmail.com",
+      "cpf": "382193821",
+      "phonenumber": "4392138128"
+    },
+    {
+      "id": "3",
+      "user_name": "jeff",
+      "role": "Dev 3",
+      "password": "9382198312",
+      "email": "jeffsimp@email.com",
+      "cpf": "39128312",
+      "phonenumber": "93128398"
+    }
+  ]
+}
